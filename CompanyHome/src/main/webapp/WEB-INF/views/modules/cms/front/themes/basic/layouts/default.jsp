@@ -6,6 +6,9 @@
 <html>
 <head>
 <link href="/huaxin/css/list.css" rel="stylesheet" type="text/css">
+<link href="/huaxin/css/lib.min.css" rel="stylesheet" type="text/css">
+<link href="/huaxin/css/page_home.min.css" rel="stylesheet"
+	type="text/css">
 <title><sitemesh:title default="欢迎光临" /></title>
 <%@include file="/WEB-INF/views/modules/cms/front/include/head.jsp"%>
 <!-- Baidu tongji analytics -->
@@ -21,100 +24,40 @@
 <sitemesh:head />
 <script>
 	function init() {
-		logdate();
 		setInterval('changeimg()', 10000);
-		setInterval('logdate()', 1000);
 	}
-	function logdate() {
-		var date = new Date();
-		var seperator2 = ":";
-		var month = date.getMonth() + 1;
-		var strDate = date.getDate();
-		if (month >= 1 && month <= 9) {
-			month = "0" + month;
-		}
-		if (strDate >= 0 && strDate <= 9) {
-			strDate = "0" + strDate;
-		}
 
-		var hour = date.getHours();
-		var minutes = date.getMinutes();
-		var seconds = date.getSeconds();
-		if (hour >= 0 && hour <= 9) {
-			hour = "0" + hour;
-		}
-		if (minutes >= 0 && minutes <= 9) {
-			minutes = "0" + minutes;
-		}
-		if (seconds >= 0 && seconds <= 9) {
-			seconds = "0" + seconds;
-		}
-		var a = new Array("日", "一", "二", "三", "四", "五", "六");
-		var week = date.getDay();
-		var str = "今天是  星期" + a[week];
-		var currentdate = date.getFullYear() + " 年 " + month + " 月 " + strDate
-				+ " 日 " + hour + seperator2 + minutes + seperator2 + seconds
-				+ "  &nbsp;" + str;
-		$('#logdate').html(currentdate);
-	}
-	
 	var num = 1;
 	function changeimg() {
-		$('#Image1').attr("src","/huaxin/img/ad_"+num+".png");
+		$('#Image1').attr("src", "/huaxin/img/ad_" + num + ".png");
 		num++;
-		if(num==4){
+		if (num == 4) {
 			num = 1;
 		}
 	};
-	
-	function _search(){
-		var url = "/f/search?pageNo=1&t=article&cid=&a=0&pageSize=30&q=";
-		window.location.href = url;
-	}
-	
 </script>
 </head>
 <body onload="init();">
-	<table width="940" border="0" align="center" cellspacing="0"
+	<table width="100%" border="0" align="center" cellspacing="0"
 		cellpadding="0">
 		<tbody>
-			<tr>
-				<td height="30" colspan="7" background="/huaxin/img/bk.png"><table
-						width="940" border="0" cellspacing="0" cellpadding="0">
-						<tbody>
-							<tr>
-								<td class="STYLE3">欢迎访问嘉兴市交通工程质量安全监督站</td>
-								<td><div align="center" class="STYLE3">加为收藏</div></td>
-							</tr>
-						</tbody>
-					</table></td>
-			</tr>
 			<tr>
 				<td height="172" colspan="7" background="/huaxin/img/ad.png"><table
 						width="344" height="172" border="0" align="right" cellpadding="0"
 						cellspacing="0">
 						<tbody>
 							<tr>
-								<td align="right">
-									<img src="/huaxin/img/ad_1.png" id="Image1" width="344" height="172">
-								</td>
+								<td align="right"><img src="/huaxin/img/ad_1.png"
+									id="Image1" width="344" height="172"></td>
 							</tr>
 						</tbody>
 					</table></td>
-			</tr>
-			<tr>
-				<td height="35" colspan="7" background="/huaxin/img/bk1.png"
-					class="STYLE3"><div id="logdate"
-						style="position: relative; left: 10px;width: 50%;float: left;"></div>
-					<div style="position: relative;text-align: right;height: 20px;bottom: 5px"><input class="btn btn-primary" id="searchparam" type="button" placeholder="标题" value="全站搜索" onclick="_search(this.value);"/></div>
-				</td>
 			</tr>
 		</tbody>
 	</table>
 	<div style="text-align: center;">
 		<div class="navbar navbar-fixed-top"
-			style="position: static; width: 940px; margin: 0 auto;"
-			align="center">
+			style="position: static; width: 100%; margin: 0 auto;" align="center">
 			<div class="navbar-inner">
 				<div class="container">
 					<div class="nav-collapse">
@@ -123,7 +66,7 @@
 								href="${ctx}/index-1${fns:getUrlSuffix()}"><span>${site.id eq '1'?'首　 页':'返回主站'}</span></a></li>
 							<c:forEach items="${fnc:getMainNavList(site.id)}" var="category"
 								varStatus="status">
-								<c:if test="${status.index lt 6}">
+								<c:if test="${status.index lt 20}">
 									<c:set var="menuCategoryId" value=",${category.id}," />
 									<li
 										class="${requestScope.category.id eq category.id||fn:indexOf(requestScope.category.parentIds,menuCategoryId) ge 1?'active':''}"><a
@@ -141,32 +84,42 @@
 		<div class="content">
 			<sitemesh:body />
 		</div>
-		<div style="margin-top: 0px; color: #fff;">
-			<table width="940" border="0" align="center" cellspacing="0">
-				<tbody>
-					<tr>
-						<td height="32" background="/huaxin/img/db.png"><table
-								width="500" border="0" align="center">
-								<tbody>
-									<tr>
-										<td><div align="center">
-												<span class="STYLE1">免责声明</span>
-											</div></td>
-										<td><div align="center">
-												<span class="STYLE1">联系我们</span>
-											</div></td>
-										<td><div align="center">
-												<span class="STYLE1">收藏本站</span>
-											</div></td>
-										<td><div align="center">
-												<span class="STYLE1">意见建议</span>
-											</div></td>
-									</tr>
-								</tbody>
-							</table></td>
-					</tr>
-				</tbody>
-			</table>
+	</div>
+	<div id="box_footer">
+		<div id="box_footer1">
+			<div xmlns="" class="columnSpace"
+				id="elem-FrontSpecifies_show01-1405666603000" name="说明页">
+				<div id="FrontSpecifies_show01-1405666603000"
+					class="FrontSpecifies_show01-d3_c1">
+					<div class="describe htmledit">
+						<p>
+							<a href="/home.html">网站首页</a> | <a
+								href="/about/&amp;columnsId=2.html">关于我们</a> | <a
+								href="/about/&amp;i=3&amp;comContentId=3.html">企业风采</a> | <a
+								href="/products_list/columnsId=37.html">产品展示</a> |<a
+								href="/news_list.html"> 新闻中心</a> | <a href="/download.html">下载中心</a>
+							| <a href="/contact/&amp;i=5&amp;comContentId=5.html">销售网络</a> |
+							<a href="/contact/columnsId=39.html">联系我们</a><a
+								style="float: right; position: relative; right: 20px;"
+								href="http://kunshan.300.cn" target="_blank">中企动力提供技术支持</a>
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="box_footer2">
+			<div xmlns="" class="columnSpace"
+				id="elem-FrontSpecifies_show01-1405666623017" name="说明页">
+				<div id="FrontSpecifies_show01-1405666623017"
+					class="FrontSpecifies_show01-d3_c1">
+					<div class="describe htmledit">
+						<p>
+							页面版权所有上海山川泵业制造有限公司&nbsp;&nbsp; <a
+								href="http://www.miitbeian.gov.cn" target="_blank">沪ICP备05055144号</a>&nbsp;&nbsp;
+						</p>
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
 	<!-- /container -->

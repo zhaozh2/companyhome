@@ -9,363 +9,282 @@
 <meta name="keywords" content="JeeSite ${site.keywords}" />
 <script type="text/javascript" src="huaxin/common/jquery-1.8.3.min.js"></script>
 <script type="text/javascript" src="huaxin/common/Marquee.js"></script>
-<script
-	src="http://webapi.amap.com/maps?v=1.3&key=ed8b0e2710318f9259d17868d73d5fb1"></script>
-
-<style type="text/css">
-/* #marquee3 */
-.marqueebox {
-	position: relative;
-}
-
-#marquee3 {
-	height: 210px;
-	overflow: hidden;
-}
-
-#marquee3 ul li {
-	float: left;
-}
-
-#marquee3 ul li img {
-	display: block;
-}
-
-#mar3Nav {
-	position: absolute;
-	right: 10px;
-	bottom: 10px;
-}
-
-#mar3Nav li {
-	float: left;
-	margin: 0 3px;
-	width: 16px;
-	height: 16px;
-	background: #333;
-	border: 1px solid #FFF;
-	cursor: pointer;
-	line-height: 16px;
-	font-family: Arial;
-	font-size: 10px;
-	color: #FFF;
-	text-align: center;
-}
-
-#mar3Nav li.navOn {
-	background: #FF6600;
-}
-
-.div1 {
-	height: 3px;
-}
-
-div#roll {
-	width: 259px;
-	height: 129px;
-	position: absolute;
-	z-index:9999;
-}
-</style>
-
-<script type="text/javascript">
-	var map;
-	var ggRoll;
-	$(function() {
-		//一次滚动一屏
-		$('#marquee3').kxbdSuperMarquee({
-			distance : 345,
-			time : 4,
-			navId : '#mar3Nav',
-			direction : 'left'
-		});
-		/**map = new AMap.Map('mapdiv', {
-			resizeEnable : true,
-			zoom : 15,
-			center : [ 120.727984, 30.74017 ]
-		});
-		addMarker();**/
-		$('#link1').change(function() {
-			var p1 = $(this).children('option:selected').val();//这就是selected的值 
-			window.open(p1, "link");//页面跳转并传参 
-		});
-		$('#link2').change(function() {
-			var p1 = $(this).children('option:selected').val();//这就是selected的值 
-			window.open(p1, "link");//页面跳转并传参 
-		});
-		$('#link3').change(function() {
-			var p1 = $(this).children('option:selected').val();//这就是selected的值 
-			window.open(p1, "link");//页面跳转并传参 
-		});
-		$('#link4').change(function() {
-			var p1 = $(this).children('option:selected').val();//这就是selected的值 
-			window.open(p1, "link");//页面跳转并传参 
-		});
-
-		ggRoll = {
-			roll : document.getElementById("roll"),
-			speed : 20,
-			statusX : 1,
-			statusY : 1,
-			x : 100,
-			y : 300,
-			winW : document.documentElement.clientWidth
-					- document.getElementById("roll").offsetWidth,
-			winH : document.documentElement.clientHeight
-					- document.getElementById("roll").offsetHeight,
-			Go : function() {
-				console.info(1123);
-				this.roll.style.left = this.x + 'px';
-				this.roll.style.top = this.y + 'px';
-				this.x = this.x + (this.statusX ? -1 : 1)
-				if (this.x < 0) {
-					this.statusX = 0
-				}
-				if (this.x > this.winW) {
-					this.statusX = 1
-				}
-				this.y = this.y + (this.statusY ? -1 : 1)
-				if (this.y < 0) {
-					this.statusY = 0
-				}
-				if (this.y > this.winH) {
-					this.statusY = 1
-				}
-			}
-		}
-		var interval = setInterval("ggRoll.Go()", ggRoll.speed);
-		ggRoll.roll.onmouseover = function() {
-			clearInterval(interval)
-		};
-		ggRoll.roll.onmouseout = function() {
-			interval = setInterval("ggRoll.Go()", ggRoll.speed)
-		};
-	});
-
-	function addMarker() {
-		marker = new AMap.Marker({
-			icon : "http://webapi.amap.com/theme/v1.3/markers/n/mark_b.png",
-			position : [ 120.727984, 30.74017 ]
-		});
-		marker.setMap(map);
-	}
-</script>
 </head>
 <body>
-	<div id="roll">
-		<c:forEach items="${fnc:getFlyLink()}" var="flylink">
-		<a href="${flylink.href}" style="width:258px;height:129px;cursor: pointer;" ><img border="0" src="${flylink.image}" /></a>
-		</c:forEach>
+	<div id="box_main">
+		<div id="box_banner">
+			<div id="FrontPublic_slideShow01-1405661998193"
+				class="FrontPublic_slideShow01-d1_c1">
+				<div class="slide-contente" style="width: 1440px;">
+					<div class="slide-pic" style="width: 1440px;">
+						<ul>
+							<li
+								style="position: absolute; top: 0px; left: 0px; display: none;"><img
+								src="/huaxin/image/top1.jpg"
+								style="width: 1440px; height: 416px;"></li>
+						</ul>
+					</div>
+					<div class="slide-info-mark"></div>
+					<div class="slide-info">
+						<h3></h3>
+						<div class="slide-text"></div>
+						<div class="slide-tag-text" style="display: block;">
+							<ul>
+								<li class="">1</li>
+								<li class="">2</li>
+								<li class="">3</li>
+								<li class="slide-hover">4</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="slide-tag-thumbnail">
+					<div class="arrowhead-left arrowhead"></div>
+					<div class="thumbnail-list">
+						<ul></ul>
+					</div>
+					<div class="arrowhead-right arrowhead"></div>
+					<div class="clearBoth"></div>
+				</div>
+			</div>
+		</div>
 	</div>
-	<table width="940" align="center" cellpadding="0">
-		<tr>
-			<td valign="top"><table width="245" align="right">
-					<tr>
-						<td><table width="245" align="right">
-								<tr>
-									<td><c:forEach items="${categoryList}" var="tpl">
-											<c:if test="${tpl.name eq '通知公告' || tpl.name eq '统计分析'}">
-												<div class="span5"
-													style="width: 245px; margin: 5px 5px 5px -3px; border: solid 1px #ddd;">
-													<h4
-														style="background: url(huaxin/img/zwgk.png); height: 33px; width: 245px; font-size: 15px;">
-														<div style="padding: 10px 15px;">${tpl.name}</div>
-													</h4>
-													<c:if test="${tpl.module eq 'article'}">
-														<ul style="margin: 5px;">
-															<c:forEach
-																items="${fnc:getArticleList(site.id, tpl.id, 10, '')}"
-																var="article">
-																<li><span class="pull-right"><fmt:formatDate
-																			value="${article.updateDate}" pattern="yyyy.MM.dd" /></span><a
-																	href="${ctx}/view-${article.category.id}-${article.id}${urlSuffix}"
-																	style="color:${article.color}">${fns:abbr(article.title,20)}</a></li>
-															</c:forEach>
-														</ul>
-													</c:if>
-													<c:if test="${tpl.module eq 'link'}">
-														<ul style="margin: 5px;">
-															<c:forEach
-																items="${fnc:getLinkList(site.id, tpl.id, 10, '')}"
-																var="link">
-																<li><a target="_blank" href="${link.href}"
-																	style="color:${link.color}">${fns:abbr(link.title,20)}</a></li>
-															</c:forEach>
-														</ul>
-													</c:if>
-												</div>
-											</c:if>
-										</c:forEach></td>
-								</tr>
-								<tr>
-									<td><a href="/f/map-1.html"><img
-											src="huaxin/img/zndh.png"
-											style="position: relative; width: 250px; height: 51px; margin-left: -4px;" /></a></td>
-								</tr>
-							</table></td>
-					</tr>
-					<tr>
-						<td><table width="245" align="right" cellpadding="0">
-								<tr>
-									<td><div class="span5"
-											style="width: 245px; margin: 5px 5px 5px -3px; border: solid 1px #ddd;">
-											<h4
-												style="background: url(huaxin/img/zwgk.png); height: 33px; width: 245px; font-size: 15px;">
-												<div style="padding: 10px 15px;">站内互动</div>
-											</h4>
-											<c:forEach items="${categoryList}" var="tpl">
-												<c:if test="${tpl.name eq '站内互动'}">
-													<div style="width: 100%; float: right;">
-														<c:if test="${tpl.module eq 'article'}">
-															<c:forEach items="${fnc:getArticle(tpl.id)}"
-																var="article">
-																<div style="padding: 10px; word-wrap: break-word;">${article.content}</div>
-															</c:forEach>
-														</c:if>
-													</div>
-												</c:if>
-											</c:forEach>
-										</div></td>
-								</tr>
-							</table></td>
-					</tr>
-				</table></td>
-			<td width="690" valign="top"><c:forEach items="${categoryList}"
-					var="tpl">
-					<c:if
-						test="${tpl.inList eq '1' && tpl.module ne '' && tpl.name eq '新闻动态'}">
-						<div class="row" style="margin-left: -8px;">
-							<div class="span10"
-								style="width: 690px; margin: 7px 0 0 6px; border: solid 1px #ddd;">
-								<h4
-									style="background: url(huaxin/img/picnews.png); height: 33px; width: 100%; color: #fff;">
-									<small><a href="${ctx}/list-${tpl.id}${urlSuffix}"
-										class="pull-right" style="padding: 9px;">更多</a></small>
-									<div style="padding: 4px 20px;">${tpl.name}</div>
-								</h4>
-								<div style="width: 50%; float: left;">
-									<div class="marqueebox">
-										<div id="marquee3">
-											<ul style="margin: 0px;">
-												<c:forEach
-													items="${fnc:getArticleList(site.id, tpl.id, 5, '')}"
-													var="article">
-													<li><a target="_blank"
-														href="${ctx}/view-${article.category.id}-${article.id}${urlSuffix}"
-														title=""><img style="width: 345px; height: 210px;"
-															src="${article.image}" /></a></li>
-												</c:forEach>
-											</ul>
-										</div>
-										<div id="mar3Nav"></div>
+	<div class="middle1">
+		<div id="box_middle1_left">
+			<div xmlns="" class="columnSpace"
+				id="elem-FrontNews_list01-1405663998954" name="资讯列表">
+				<div id="FrontNews_list01-1405663998954"
+					class="FrontNews_list01-d1_c1_01">
+					<div>
+						<ul class="comstyle newslist-01">
+							<li class="content column-num1">
+								<div class="newstitle">
+									<ul>
+										<li class="title">
+											<h3>
+												<a href="/news_detail/newsId=10.html"
+													title="百年财富风云人物--上海山川泵业制造有限公司董事长朱建云做客访谈" target="_self">
+													百年财富风云人物--上海山川泵业制...</a>
+											</h3>
+										</li>
+									</ul>
+								</div>
+							</li>
+							<li class="clearBoth"></li>
+							<li class="content column-num1">
+								<div class="newstitle">
+									<ul>
+										<li class="title">
+											<h3>
+												<a href="/news_detail/newsId=9.html"
+													title="浙江商选择示范企业考察--情聚山川话未来" target="_self">
+													浙江商选择示范企业考察--情聚山川...</a>
+											</h3>
+										</li>
+									</ul>
+								</div>
+							</li>
+							<li class="clearBoth"></li>
+							<li class="content column-num1">
+								<div class="newstitle">
+									<ul>
+										<li class="title">
+											<h3>
+												<a href="/news_detail/newsId=8.html"
+													title="全国限量招募VIP会员制（合作）销售" target="_self">
+													全国限量招募VIP会员制（合作）销...</a>
+											</h3>
+										</li>
+									</ul>
+								</div>
+							</li>
+							<li class="clearBoth"></li>
+							<li class="content column-num1">
+								<div class="newstitle">
+									<ul>
+										<li class="title">
+											<h3>
+												<a href="/news_detail/newsId=7.html"
+													title="VIP贵宾会员计划的显示依据和理论基础" target="_self">
+													VIP贵宾会员计划的显示依据和理论...</a>
+											</h3>
+										</li>
+									</ul>
+								</div>
+							</li>
+							<li class="clearBoth"></li>
+							<li class="content column-num1">
+								<div class="newstitle">
+									<ul>
+										<li class="title">
+											<h3>
+												<a href="/news_detail/newsId=6.html"
+													title="同唱和谐乐章，共绘美好宏图！ 热烈祝贺上海山川泵业制造有限公司 2015年年会圆满成功"
+													target="_self"> 同唱和谐乐章，共绘美好宏图！ 热烈...</a>
+											</h3>
+										</li>
+									</ul>
+								</div>
+							</li>
+							<li class="clearBoth"></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="box_middle1_middle">
+			<div xmlns="" class="columnSpace"
+				id="elem-FrontSpecifies_show01-1405664046443" name="说明页">
+				<div id="FrontSpecifies_show01-1405664046443"
+					class="FrontSpecifies_show01-d3_c1">
+					<div class="describe htmledit">
+						<div class="right_sub1_sub1_sub2">
+							<div style="padding-right: 10px; float: left;">
+								<img alt="" src="/huaxin/image/top1.jpg">
+							</div>
+							<p
+								style="line-height: 20px; margin-top: 0em; text-indent: 0em; margin-bottom: 0em; letter-spacing: 0px;">
+								<span>
+									上海山川泵业制造有限公司是国内著名的水泵给排水设备及泵用控制设备专业制造销售企业，资产总额达1.5亿元，占地35000m2
+									的山川工业园坐落于上海松江佘山工业区，北靠沪青平高速公路，南邻佘山国家旅游度假区，环境优美、交通便捷。公司现有员工362名，其中大专以上学历的占71%，中、高级工程师及技术工程人员38名......[<a
+									href="/about.html">查看详细</a>]
+								</span>
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="box_middle1_right">
+			<div xmlns="" class="columnSpace"
+				id="elem-FrontSpecifies_show01-1405664086809" name="说明页">
+				<div id="FrontSpecifies_show01-1405664086809"
+					class="FrontSpecifies_show01-d3_c1">
+					<div class="describe htmledit">
+						<p
+							style="line-height: 14px; margin-top: 0em; text-indent: 0em; margin-bottom: 0em; letter-spacing: 0em;">
+							山川工业园：上海市松江区佘山工业区佘北公路1501号<br> 电话：021-57796293&nbsp;
+							021-57796299<br> 传真：021-57796281&nbsp;<br>
+							市场部、营销部：上海市普陀区武宁路19号1106室<br> 电话：021-62307790<br>
+							传真：021-62305386<br> 网址：<a
+								href="http://www.shanchuan-pump.cn/"><font color="#0066cc">www.shanchuan-pump.cn</font></a><br>
+							邮箱：<a href="mailto:shanchuan6688@163.com">shanchuan6688@163.com</a>
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="middle2">
+		<div id="box_middle2">
+			<div xmlns="" class="columnSpace"
+				id="elem-FrontProducts_list01-1405665252489" name="商品列表">
+				<div id="FrontProducts_list01-1405665252489"
+					class="FrontProducts_list01-d1_c1">
+					<form id="FrontProducts_list01-1405665252489_Form"
+						name="FrontProducts_list01-1405665252489_Form"
+						action="/FrontProducts.do?method=submit" method="post">
+						<input type="hidden" name="action_page"
+							value="/products_list.html"> <input type="hidden"
+							name="pmcId" value=""> <input type="hidden" name="pmscId"
+							value=""> <input type="hidden" name="keyword" value="">
+						<input type="hidden" name="propertyId" value=""> <input
+							type="hidden" name="searchType" value=""> <input
+							type="hidden" name="brandId" value=""> <input
+							type="hidden" name="beginValue" value=""> <input
+							type="hidden" name="endValue" value=""> <input
+							type="hidden" name="orderby" value="8"> <input
+							type="hidden" name="spType" value=""> <input
+							type="hidden" name="pageNo_FrontProducts_list01-1405665252489"
+							value="1"> <input type="hidden"
+							name="pageSize_FrontProducts_list01-1405665252489" value="30">
+					</form>
+					<div class="type">
+						<span class="sort"> </span>
+					</div>
+					<div class="scrollable scrollliner">
+						<ul class="mainul productlist-02 scrollitems">
+							<li class="content column-num30 content1 cloned">
+								<div class="pic-module">
+									<div class="pic">
+										<a href="/products_detail/productId=47.html"
+											title="管网叠压（无负压）供水设备" target="_self"> <img
+											src="/huaxin/image/top1.jpg"
+											id="FrontProducts_list01-1405665252489_47" alt=""
+											title="管网叠压（无负压）供水设备"
+											onerror="this.src='/images/common/noimage.jpg'"></a>
 									</div>
 								</div>
-								<div style="width: 50%; float: right;">
-									<c:if test="${tpl.module eq 'article'}">
-										<ul style="margin: 5px;">
-											<c:forEach
-												items="${fnc:getArticleList(site.id, tpl.id, 10, '')}"
-												var="article">
-												<li><span class="pull-right"><fmt:formatDate
-															value="${article.updateDate}" pattern="yyyy.MM.dd" /></span><a
-													href="${ctx}/view-${article.category.id}-${article.id}${urlSuffix}"
-													style="color:${article.color}">${fns:abbr(article.title,40)}</a></li>
-											</c:forEach>
-										</ul>
-									</c:if>
-									<c:if test="${tpl.module eq 'link'}">
-										<ul style="margin: 5px;">
-											<c:forEach
-												items="${fnc:getLinkList(site.id, tpl.id, 10, '')}"
-												var="link">
-												<li><a target="_blank" href="${link.href}"
-													style="color:${link.color}">${fns:abbr(link.title,40)}</a></li>
-											</c:forEach>
-										</ul>
-									</c:if>
+								<div class="pro-module">
+									<ul class="basic">
+										<li class="code">
+											<h1>
+												<span>产品名称：</span> <strong> <a
+													href="/products_detail/productId=47.html"
+													title="管网叠压（无负压）供水设备" target="_self"> 管网叠压（无负压）供水设备</a>
+												</strong>
+											</h1>
+										</li>
+									</ul>
+									<p class="buttonP"></p>
 								</div>
-							</div>
-						</div>
-					</c:if>
-				</c:forEach> <c:set var="index" value="1" /> <c:forEach items="${categoryList}"
-					var="tpl">
-					<c:if
-						test="${tpl.inList eq '1' && tpl.module ne '' && tpl.name ne '测试栏目' && tpl.name ne '新闻动态'}">
-						<c:set var="index" value="${index+1}" />
-					${index % 2 eq 0 ? '<div class="row" style="margin-left:-8px;">':''}
-			    	<div class="span5"
-							style="width: 340px; margin: 8px 0 0 6px; border: solid 1px #ddd; height: 200px;">
-							<h4
-								style="background: url(huaxin/img/dh.png); height: 33px; width: 340px; color: #fff;">
-								<small><a href="${ctx}/list-${tpl.id}${urlSuffix}"
-									class="pull-right" style="padding: 9px;">更多</a></small>
-								<div style="padding: 4px 20px;">${tpl.name}</div>
-							</h4>
-							<c:if test="${tpl.module eq 'article'}">
-								<ul style="margin: 5px;">
-									<c:forEach
-										items="${fnc:getArticleList(site.id, tpl.id, 8, '')}"
-										var="article">
-										<li><span class="pull-right"><fmt:formatDate
-													value="${article.updateDate}" pattern="yyyy.MM.dd" /></span><a
-											href="${ctx}/view-${article.category.id}-${article.id}${urlSuffix}"
-											style="color:${article.color}">${fns:abbr(article.title,30)}</a></li>
-									</c:forEach>
-								</ul>
-							</c:if>
-							<c:if test="${tpl.module eq 'link'}">
-								<ul style="margin: 5px;">
-									<c:forEach items="${fnc:getLinkList(site.id, tpl.id, 8, '')}"
-										var="link">
-										<li><a target="_blank" href="${link.href}"
-											style="color:${link.color}">${fns:abbr(link.title,30)}</a></li>
-									</c:forEach>
-								</ul>
-							</c:if>
-						</div>
-			    	${index % 2 ne 0 ? '</div>':''}
-				</c:if>
-				</c:forEach></td>
-		</tr>
-	</table>
-	<div style="margin-top: 10px; background: #efefef;">
-		<div style="height: 22px; padding: 5px">友情链接：</div>
-		<table width="940" border="0" align="center" cellspacing="0">
-			<tbody>
-				<tr>
-					<td height="32"><select id="link1">
-							<c:forEach items="${fnc:getGoodLinkList(10,1)}" var="category"
-								varStatus="status">
-								<option value="${category.url}">${category.name}</option>
-							</c:forEach>
-					</select></td>
-					<td><div align="center">
-							<select id="link2">
-								<c:forEach items="${fnc:getGoodLinkList(10,2)}" var="category"
-									varStatus="status">
-									<option value="${category.url}">${category.name}</option>
-								</c:forEach>
-							</select>
-						</div></td>
-					<td><div align="center">
-							<select id="link3">
-								<c:forEach items="${fnc:getGoodLinkList(10,3)}" var="category"
-									varStatus="status">
-									<option value="${category.url}">${category.name}</option>
-								</c:forEach>
-							</select>
-						</div></td>
-					<td><div align="center">
-							<select id="link4">
-								<c:forEach items="${fnc:getGoodLinkList(10,4)}" var="category"
-									varStatus="status">
-									<option value="${category.url}">${category.name}</option>
-								</c:forEach>
-							</select>
-						</div></td>
-				</tr>
-			</tbody>
-		</table>
+							</li>
+							<li class="content column-num30 content1 cloned">
+								<div class="pic-module">
+									<div class="pic">
+										<a href="/products_detail/productId=46.html" title="油水分离器"
+											target="_self"> <img src="/huaxin/image/top1.jpg"
+											id="FrontProducts_list01-1405665252489_46" alt=""
+											title="油水分离器" onerror="this.src='/images/common/noimage.jpg'"></a>
+									</div>
+								</div>
+								<div class="pro-module">
+									<ul class="basic">
+										<li class="code">
+											<h1>
+												<span>产品名称：</span> <strong> <a
+													href="/products_detail/productId=46.html" title="油水分离器"
+													target="_self"> 油水分离器</a>
+												</strong>
+											</h1>
+										</li>
+									</ul>
+									<p class="buttonP"></p>
+								</div>
+							</li>
+							<li class="content column-num30 content1 cloned">
+								<div class="pic-module">
+									<div class="pic">
+										<a href="/products_detail/productId=45.html"
+											title="SCGP管网叠压箱式泵站" target="_self"> <img
+											src="/huaxin/image/top1.jpg"
+											id="FrontProducts_list01-1405665252489_45" alt=""
+											title="SCGP管网叠压箱式泵站"
+											onerror="this.src='/images/common/noimage.jpg'"></a>
+									</div>
+								</div>
+								<div class="pro-module">
+									<ul class="basic">
+										<li class="code">
+											<h1>
+												<span>产品名称：</span> <strong> <a
+													href="/products_detail/productId=45.html"
+													title="SCGP管网叠压箱式泵站" target="_self"> SCGP管网叠压箱式泵站</a>
+												</strong>
+											</h1>
+										</li>
+									</ul>
+									<p class="buttonP"></p>
+								</div>
+							</li>
+							<li class="clearBoth content1"></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="clearBoth"></div>
 	</div>
 </body>
 </html>
