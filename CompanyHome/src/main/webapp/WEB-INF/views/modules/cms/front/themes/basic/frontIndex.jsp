@@ -7,44 +7,39 @@
 <meta name="decorator" content="cms_default_${site.theme}" />
 <meta name="description" content="JeeSite ${site.description}" />
 <meta name="keywords" content="JeeSite ${site.keywords}" />
+<link rel="stylesheet" href="huaxin/css/demo.css?1" type="text/css"
+	media="screen" />
 <script type="text/javascript" src="huaxin/common/jquery-1.8.3.min.js"></script>
 <script type="text/javascript" src="huaxin/common/Marquee.js"></script>
+<script type="text/javascript" src="huaxin/common/jquery.easing.1.3.js"></script>
+<script type="text/javascript"
+	src="huaxin/common/jquery.nivo.slider_2.5.2.js"></script>
+<script type="text/javascript">
+	$(document).ready(function() {
+		$('#slider').nivoSlider({
+			effect : 'fold',
+			animSpeed : 500,
+			pauseTime : 2000,
+			startSlide : 0,
+			slices : 15,
+			directionNav : false,
+			directionNavHide : false,
+			controlNav : true,
+			controlNavThumbs : false,
+			keyboardNav : true,
+			pauseOnHover : true,
+			captionOpacity : 0.8
+		});
+	});
+</script>
 </head>
 <body>
 	<div id="box_main">
-		<div id="box_banner">
-			<div id="FrontPublic_slideShow01-1405661998193"
-				class="FrontPublic_slideShow01-d1_c1">
-				<div class="slide-contente" style="width: 1440px;">
-					<div class="slide-pic" style="width: 1440px;">
-						<ul>
-							<li
-								style="position: absolute; top: 0px; left: 0px; display: none;"><img
-								src="/huaxin/image/top1.jpg"
-								style="width: 1440px; height: 416px;"></li>
-						</ul>
-					</div>
-					<div class="slide-info-mark"></div>
-					<div class="slide-info">
-						<h3></h3>
-						<div class="slide-text"></div>
-						<div class="slide-tag-text" style="display: block;">
-							<ul>
-								<li class="">1</li>
-								<li class="">2</li>
-								<li class="">3</li>
-								<li class="slide-hover">4</li>
-							</ul>
-						</div>
-					</div>
-				</div>
-				<div class="slide-tag-thumbnail">
-					<div class="arrowhead-left arrowhead"></div>
-					<div class="thumbnail-list">
-						<ul></ul>
-					</div>
-					<div class="arrowhead-right arrowhead"></div>
-					<div class="clearBoth"></div>
+		<div id="wrapper">
+			<div class="slider-wrapper theme-theme1204">
+				<div id="slider" class="nivoSlider">
+					<img src="huaxin/img/1.jpg" alt="" /> <img src="huaxin/img/2.jpg"
+						alt="" /> <img src="huaxin/img/3.jpg" alt="" />
 				</div>
 			</div>
 		</div>
@@ -56,7 +51,7 @@
 				<div id="FrontNews_list01-1405663998954"
 					class="FrontNews_list01-d1_c1_01">
 					<div>
-						<ul class="comstyle newslist-01">
+						<ul class="comstyle newslist-01" style="margin: 0px;">
 							<li class="content column-num1">
 								<div class="newstitle">
 									<ul>
@@ -140,7 +135,7 @@
 					<div class="describe htmledit">
 						<div class="right_sub1_sub1_sub2">
 							<div style="padding-right: 10px; float: left;">
-								<img alt="" src="/huaxin/image/top1.jpg">
+								<img alt="" src="/huaxin/img/piaochuang.png">
 							</div>
 							<p
 								style="line-height: 20px; margin-top: 0em; text-indent: 0em; margin-bottom: 0em; letter-spacing: 0px;">
@@ -209,10 +204,10 @@
 									<div class="pic">
 										<a href="/products_detail/productId=47.html"
 											title="管网叠压（无负压）供水设备" target="_self"> <img
-											src="/huaxin/image/top1.jpg"
+											src="/huaxin/img/piaochuang.png"
 											id="FrontProducts_list01-1405665252489_47" alt=""
 											title="管网叠压（无负压）供水设备"
-											onerror="this.src='/images/common/noimage.jpg'"></a>
+											onerror="this.src='/huaxin/img/piaochuang.png'"></a>
 									</div>
 								</div>
 								<div class="pro-module">
@@ -233,9 +228,9 @@
 								<div class="pic-module">
 									<div class="pic">
 										<a href="/products_detail/productId=46.html" title="油水分离器"
-											target="_self"> <img src="/huaxin/image/top1.jpg"
+											target="_self"> <img src="/huaxin/img/piaochuang.png"
 											id="FrontProducts_list01-1405665252489_46" alt=""
-											title="油水分离器" onerror="this.src='/images/common/noimage.jpg'"></a>
+											title="油水分离器" onerror="this.src='/huaxin/img/piaochuang.png'"></a>
 									</div>
 								</div>
 								<div class="pro-module">
@@ -257,10 +252,10 @@
 									<div class="pic">
 										<a href="/products_detail/productId=45.html"
 											title="SCGP管网叠压箱式泵站" target="_self"> <img
-											src="/huaxin/image/top1.jpg"
+											src="/huaxin/img/piaochuang.png"
 											id="FrontProducts_list01-1405665252489_45" alt=""
 											title="SCGP管网叠压箱式泵站"
-											onerror="this.src='/images/common/noimage.jpg'"></a>
+											onerror="this.src='/huaxin/img/piaochuang.png'"></a>
 									</div>
 								</div>
 								<div class="pro-module">
