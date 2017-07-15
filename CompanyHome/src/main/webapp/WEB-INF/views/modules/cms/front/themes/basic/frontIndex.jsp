@@ -7,7 +7,7 @@
 <meta name="decorator" content="cms_default_${site.theme}" />
 <meta name="description" content="JeeSite ${site.description}" />
 <meta name="keywords" content="JeeSite ${site.keywords}" />
-<link rel="stylesheet" href="huaxin/css/demo.css?1" type="text/css"
+<link rel="stylesheet" href="huaxin/css/demo.css?2" type="text/css"
 	media="screen" />
 <script type="text/javascript" src="huaxin/common/jquery-1.8.3.min.js"></script>
 <script type="text/javascript" src="huaxin/common/Marquee.js"></script>
@@ -15,22 +15,26 @@
 <script type="text/javascript"
 	src="huaxin/common/jquery.nivo.slider_2.5.2.js"></script>
 <script type="text/javascript">
-	$(document).ready(function() {
-		$('#slider').nivoSlider({
-			effect : 'fold',
-			animSpeed : 500,
-			pauseTime : 2000,
-			startSlide : 0,
-			slices : 15,
-			directionNav : false,
-			directionNavHide : false,
-			controlNav : true,
-			controlNavThumbs : false,
-			keyboardNav : true,
-			pauseOnHover : true,
-			captionOpacity : 0.8
-		});
+	 $(document).ready(function() {
+		setTimeout('doSlider()',500);
 	});
+	 
+	 function doSlider(){
+		 $('#slider').nivoSlider({
+				effect : 'fold',
+				animSpeed : 500,
+				pauseTime : 2000,
+				startSlide : 0,
+				slices : 15,
+				directionNav : false,
+				directionNavHide : false,
+				controlNav : true,
+				controlNavThumbs : false,
+				keyboardNav : true,
+				pauseOnHover : true,
+				captionOpacity : 0.8
+			});
+	 }
 </script>
 </head>
 <body>
@@ -38,8 +42,8 @@
 		<div id="wrapper">
 			<div class="slider-wrapper theme-theme1204">
 				<div id="slider" class="nivoSlider">
-					<img src="huaxin/img/1.jpg" alt="" /> <img src="huaxin/img/2.jpg"
-						alt="" /> <img src="huaxin/img/3.jpg" alt="" />
+					<img src="huaxin/img/1.jpg" alt="" style="height:423px;"/> <img src="huaxin/img/2.jpg"
+						alt="" /> <img src="huaxin/img/3.jpg" alt="" /> <img src="huaxin/img/4.jpg" alt="" />
 				</div>
 			</div>
 		</div>

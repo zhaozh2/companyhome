@@ -20,9 +20,9 @@
 
 .middle1 {
 	margin: 0 auto;
-	width: 977px;
 	height: 213px;
-	padding-top: 25px
+	padding-top: 25px;
+	margin: 10px 110px;
 }
 
 .header11 {
@@ -46,9 +46,9 @@
 
 .middle2 {
 	margin: 0 auto;
-	width: 977px;
 	background: url(../img/index/probj.jpg) no-repeat center center;
-	height: 246px
+	height: 246px;
+	margin: 10px 110px;
 }
 
 #box_middle1_left {
@@ -61,8 +61,8 @@
 
 #box_middle1_middle {
 	padding-left: 10px;
-	width: 480px;
-	background: url(../img/index/gs.jpg) no-repeat;
+	width: 500px;
+	background: url(../img/index/gs.jpg) no-repeat  10px 0px;
 	float: left;
 	height: 203px;
 	padding-top: 55px
