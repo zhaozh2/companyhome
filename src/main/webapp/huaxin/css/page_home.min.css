@@ -1,4 +1,4 @@
-@charset "utf-8"; 
+@charset "utf-8";
 
 #box_flv {
 	position: fixed;
@@ -56,30 +56,30 @@
 	background: url(../img/index/newsbj.jpg) no-repeat;
 	float: left;
 	height: 203px;
-	padding-top: 45px
+	padding-top: 45px;
 }
 
 #box_middle1_middle {
 	padding-left: 10px;
+	margin-left: 10px;
 	width: 500px;
-	background: url(../img/index/gs.jpg) no-repeat  10px 0px;
+	background: url(../img/index/gs.jpg) no-repeat 10px 0px;
 	float: left;
 	height: 203px;
-	padding-top: 55px
+	padding-top: 55px;
 }
 
 #box_middle1_right {
-	padding-left: 10px;
+	padding: 0 5px;
 	width: 204px;
 	background: url(../img/index/lxbj.jpg) no-repeat;
 	float: right;
 	height: 203px;
-	padding-top: 55px
+	padding-top: 55px;
 }
 
 #box_middle2 {
 	margin: 0 auto;
-	width: 870px;
 	padding-top: 65px
 }
 

@@ -75,15 +75,13 @@
 		</script>
 </head>
 <body>
-	<div class="row">
-	   <div class="span12">
+	<div class="row" >
+	   <div style="width:990px;margin: 0 auto;">
 		 <ul class="breadcrumb">
 		    <cms:frontCurrentPosition category="${category}"/>
 		 </ul>
 	   </div>
-	   <div class="span12">
-	     <div class="row">
-	       <div class="span12">
+	   <div style="width:990px;margin: 0 auto;">
 			<h3 style="color:#555555;font-size:20px;text-align:center;">${article.title}</h3>
 			<h5 style="text-align:center;border-bottom:1px solid #ddd;padding-bottom:15px;margin:5px 0 15px 0;"><fmt:formatDate value="${article.createDate}" pattern="yyyy-MM-dd HH:mm:ss"/></h5>
 			<c:if test="${not empty article.description}"><div>摘要：${article.description}</div></c:if>
@@ -96,8 +94,6 @@
 				</div>
 			</div>
 			<div style="border-top:1px solid #ddd;padding:10px;margin-top: 15px;">发布者：${article.user.name} &nbsp; 点击数：${article.hits} &nbsp;</div>
-  	       </div>
-  	     </div>
   	  </div>
    </div>
 </body>

@@ -29,8 +29,6 @@ import com.thinkgem.jeesite.modules.cms.service.ArticleService;
 import com.thinkgem.jeesite.modules.cms.service.CategoryService;
 import com.thinkgem.jeesite.modules.cms.service.LinkService;
 import com.thinkgem.jeesite.modules.cms.service.SiteService;
-import com.thinkgem.jeesite.modules.qualitygoodlink.entity.QualityGoodLink;
-import com.thinkgem.jeesite.modules.qualitygoodlink.service.QualityGoodLinkService;
 
 /**
  * 内容管理工具类
@@ -45,7 +43,6 @@ public class CmsUtils {
 	private static ArticleDataService articleDataService = SpringContextHolder.getBean(ArticleDataService.class);
 	private static LinkService linkService = SpringContextHolder.getBean(LinkService.class);
     private static ServletContext context = SpringContextHolder.getBean(ServletContext.class);
-    private static QualityGoodLinkService goodlinkservice = SpringContextHolder.getBean(QualityGoodLinkService.class);
     
 	private static final String CMS_CACHE = "cmsCache";
 	
@@ -224,16 +221,6 @@ public class CmsUtils {
 		return page.getList();
 	}
 	
-	
-	/**
-	 * 获取友情链接列表
-	 * @param number 获取数目
-	 * @return
-	 */
-	public static List<QualityGoodLink> getGoodLinkList(int num, int type){
-		List<QualityGoodLink> list = goodlinkservice.findListByIndex(num,type);
-		return list;
-	}
 	// ============== Cms Cache ==============
 	
 	public static Object getCache(String key) {
@@ -338,14 +325,5 @@ public class CmsUtils {
         	addViewConfigAttribute(model, ca.getViewConfig());
         }
     }
-    
-    /**
-	 * 获取友情链接列表
-	 * @param number 获取数目
-	 * @return
-	 */
-	public static List<QualityGoodLink> getFlyLink(){
-		List<QualityGoodLink> list = goodlinkservice.getFlyLink();
-		return list;
-	}
+     
 }

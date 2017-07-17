@@ -5,9 +5,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link href="/huaxin/css/list.css" rel="stylesheet" type="text/css">
-<link href="/huaxin/css/lib.min.css" rel="stylesheet" type="text/css">
-<link href="/huaxin/css/page_home.min.css?2" rel="stylesheet"
+<link href="/huaxin/css/page_home.min.css" rel="stylesheet"
 	type="text/css">
 <title><sitemesh:title default="欢迎光临" /></title>
 <%@include file="/WEB-INF/views/modules/cms/front/include/head.jsp"%>
