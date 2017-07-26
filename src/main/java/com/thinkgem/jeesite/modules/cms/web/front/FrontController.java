@@ -176,6 +176,24 @@ public class FrontController extends BaseController{
 					Page<Link> page = new Page<Link>(1, -1);
 					page = linkService.findPage(page, new Link(category), false);
 					model.addAttribute("page", page);
+				}else if ("pictures".equals(category.getModule())){
+					Page<Article> page = new Page<Article>(pageNo, pageSize);
+					//System.out.println(page.getPageNo());
+					page = articleService.findPage(page, new Article(category), false);
+					model.addAttribute("page", page);
+					// 如果第一个子栏目为简介类栏目，则获取该栏目第一篇文章
+					if ("2".equals(category.getShowModes())){
+						Article article = new Article(category);
+						if (page.getList().size()>0){
+							article = page.getList().get(0);
+							article.setArticleData(articleDataService.get(article.getId()));
+							articleService.updateHitsAddOne(article.getId());
+						}
+						model.addAttribute("article", article);
+			            CmsUtils.addViewConfigAttribute(model, category);
+			            CmsUtils.addViewConfigAttribute(model, article.getViewConfig());
+						return "modules/cms/front/themes/"+site.getTheme()+"/"+getTpl(article);
+					}
 				}
 				String view = "/frontList";
 				if (StringUtils.isNotBlank(category.getCustomListView())){
@@ -234,7 +252,7 @@ public class FrontController extends BaseController{
 			return "error/404";
 		}
 		model.addAttribute("site", category.getSite());
-		if ("article".equals(category.getModule())){
+		if ("article".equals(category.getModule())||"pictures".equals(category.getModule())){
 			// 如果没有子栏目，并父节点为跟节点的，栏目列表为当前栏目。
 			List<Category> categoryList = Lists.newArrayList();
 			if (category.getParent().getId().equals("1")){

@@ -12,9 +12,9 @@
    			</c:when>
    			<c:otherwise><c:set var="url" value="${ctx}/list-${tpl.id}${urlSuffix}"/></c:otherwise>
    		</c:choose>
-		<li style="height: 30px;background: url(/huaxin/img/n1.jpg) no-repeat 0 0;position: relative;right: 19px;" class="${requestScope.category.id eq tpl.id ?'menu_activ':''}">
+		<li style="height: 30px;background: url(/huaxin/img/n1.jpg) no-repeat 0 0;position: relative;right: 19px;text-align: center;" class="${requestScope.category.id eq tpl.id ?'menu_activ':''}">
 			<c:choose><c:when test="${fn:length(tpl.name) gt 12}">
-				<a href="${url}" target="${tpl.target}" style="line-height:16px;padding-top:3px;padding-left: 20px;">${tpl.name}</a>
+				<a href="${url}" target="${tpl.target}" style="line-height:16px;padding-top:3px;">${tpl.name}</a>
 			</c:when><c:otherwise>
 				 <a href="${url}" target="${tpl.target}" ${fn:length(tpl.name) gt 10?'style="font-size:12px;"':''} style="padding-left: 20px;">${tpl.name}</a>
 			</c:otherwise></c:choose></li>
