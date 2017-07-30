@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.thinkgem.jeesite.modules.mainpic.dao.MainPicDao">
+    
+	<sql id="mainPicColumns">
+		a.id AS "id",
+		a.title AS "title",
+		a.remark AS "remark",
+		a.image AS "image",
+		a.type AS "type",
+		a.status AS "status",
+		a.create_by AS "createBy.id",
+		a.create_date AS "createDate",
+		a.update_by AS "updateBy.id",
+		a.update_date AS "updateDate"
+	</sql>
+	
+	<sql id="mainPicJoins">
+	</sql>
+    
+	<select id="get" resultType="MainPic">
+		SELECT 
+			<include refid="mainPicColumns"/>
+		FROM main_pic a
+		<include refid="mainPicJoins"/>
+		WHERE a.id = #{id}
+	</select>
+	
+	<select id="findList" resultType="MainPic">
+		SELECT 
+			<include refid="mainPicColumns"/>
+		FROM main_pic a
+		<include refid="mainPicJoins"/>
+		<where>
+			
+			<if test="title != null and title != ''">
+				AND a.title LIKE 
+					<if test="dbName == 'oracle'">'%'||#{title}||'%'</if>
+					<if test="dbName == 'mssql'">'%'+#{title}+'%'</if>
+					<if test="dbName == 'mysql'">concat('%',#{title},'%')</if>
+			</if>
+			<if test="type != null and type != ''">
+				AND a.type = #{type}
+			</if>
+		</where>
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+				ORDER BY a.update_date DESC
+			</otherwise>
+		</choose>
+		<if test="num != null and num != ''">
+				limit #{num}
+		</if>
+	</select>
+	
+	<select id="findAllList" resultType="MainPic">
+		SELECT 
+			<include refid="mainPicColumns"/>
+		FROM main_pic a
+		<include refid="mainPicJoins"/>
+		<where>
+			
+		</where>		
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+				ORDER BY a.update_date DESC
+			</otherwise>
+		</choose>
+	</select>
+	
+	<insert id="insert">
+		INSERT INTO main_pic(
+			id,
+			title,
+			remark,
+			image,
+			type,
+			status,
+			create_by,
+			create_date,
+			update_by,
+			update_date
+		) VALUES (
+			#{id},
+			#{title},
+			#{remark},
+			#{image},
+			#{type},
+			#{status},
+			#{createBy.id},
+			#{createDate},
+			#{updateBy.id},
+			#{updateDate}
+		)
+	</insert>
+	
+	<update id="update">
+		UPDATE main_pic SET 	
+			title = #{title},
+			remark = #{remark},
+			image = #{image},
+			type = #{type},
+			status = #{status},
+			update_by = #{updateBy.id},
+			update_date = #{updateDate}
+		WHERE id = #{id}
+	</update>
+	
+	<update id="delete">
+		DELETE FROM main_pic
+		WHERE id = #{id}
+	</update>
+	
+</mapper>
