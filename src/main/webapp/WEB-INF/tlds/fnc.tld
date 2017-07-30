@@ -110,4 +110,10 @@
     <function-class>com.thinkgem.jeesite.modules.cms.utils.CmsUtils</function-class>
     <function-signature>java.util.List getFlyLink()</function-signature>
   </function>
+   <function>
+    <description>获取友情链接列表</description>
+    <name>getMainPicList</name>
+    <function-class>com.thinkgem.jeesite.modules.cms.utils.CmsUtils</function-class>
+    <function-signature>java.util.List getMainPicList(java.lang.String, int)</function-signature>
+  </function>
 </taglib>

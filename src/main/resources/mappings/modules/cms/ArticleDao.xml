@@ -15,6 +15,7 @@
 		a.weight_date AS "weightDate",
 		a.hits AS "hits",
 		a.posid AS "posid",
+		a.files AS "files",
 		a.custom_content_view AS "customContentView",
 		a.view_config AS "viewConfig",
 		a.create_by AS "createBy.id",

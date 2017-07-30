@@ -40,7 +40,7 @@
 	</script>
 </head>
 <body>
-	<div style="padding:0 0 20px;">
+	 <div class="row" style="width:990px;margin: 10px auto;">
 		<!-- <h4>公共留言</h4>
 		<ul>
 			<c:forEach items="${page.list}" var="guestbook">
@@ -56,6 +56,17 @@
 			</c:if>
 		</ul>
 		<div class="pagination">${page}</div> -->
+		<div class="span3">
+			<div style="background: url(/huaxin/img/left.jpg) no-repeat 0 0; height: 200px; text-align: center; color: #fff;margin: 10px 0px 10px 0px;">
+			
+			</div>
+		</div>
+		<div class="span9">
+			<ul class="breadcrumb">
+				<cms:frontCurrentPosition category="${category}" />
+			</ul>
+		</div>
+		<div class="span9">
 		<h4>我要留言</h4>
 		<form:form id="inputForm" action="${ctx}/guestbook" method="post" class="form-horizontal">
 			<div class="control-group">
@@ -110,6 +121,7 @@
 			</div>
 			<div id="messageBox" class="alert alert-error" style="display:none">输入有误，请先更正。</div>
 		</form:form>
+		</div>
 	</div>
 </body>
 </html>

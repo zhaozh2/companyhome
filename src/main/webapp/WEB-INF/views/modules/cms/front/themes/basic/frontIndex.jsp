@@ -10,7 +10,6 @@
 <link rel="stylesheet" href="huaxin/css/demo.css" type="text/css" />
 <link rel="stylesheet" href="huaxin/css/index/style.css" type="text/css" />
 <script type="text/javascript" src="huaxin/common/jquery-1.8.3.min.js"></script>
-<script type="text/javascript" src="huaxin/js/index/PicCarousel.js"></script>
 <script type="text/javascript" src="huaxin/common/jquery.easing.1.3.js"></script>
 <script type="text/javascript"
 	src="huaxin/common/jquery.nivo.slider_2.5.2.js"></script>
@@ -19,17 +18,7 @@
 	$(document).ready(function() {
 		setTimeout('doSlider()', 500);
 
-		$(".B_Demo").PicCarousel({
-			"width" : 1000, //幻灯片的宽度
-			"height" : 300, //幻灯片的高度
-			"posterWidth" : 520, //幻灯片第一帧的宽度
-			"posterHeight" : 300, //幻灯片第一张的高度
-			"scale" : 0.9, //记录显示比例关系
-			"speed" : 1500, //记录幻灯片滚动速度
-			"autoPlay" : true, //是否开启自动播放
-			"delay" : 0, //自动播放间隔
-			"verticalAlign" : "top" //图片对齐位置
-		});
+		 doPic();
 	});
 
 	function doSlider() {
@@ -49,28 +38,82 @@
 		});
 	}
 
+	
+	function doPic() {
+		var flag = "left";
+		function DY_scroll(wraper, prev, next, img, speed, or) {
+			var wraper = $(wraper);
+			var prev = $(prev);
+			var next = $(next);
+			var img = $(img).find('ul');
+			var w = img.find('li').outerWidth(true);
+			var s = speed;
+			next.click(function() {
+				img.animate({
+					'margin-left' : -w
+				}, function() {
+					img.find('li').eq(0).appendTo(img);
+					img.css({
+						'margin-left' : 0
+					});
+				});
+				flag = "left";
+			});
+			prev.click(function() {
+				img.find('li:last').prependTo(img);
+				img.css({
+					'margin-left' : -w
+				});
+				img.animate({
+					'margin-left' : 0
+				});
+				flag = "right";
+			});
+			if (or == true) {
+				ad = setInterval(function() {
+					flag == "left" ? next.click() : prev.click()
+				}, s * 1000);
+				wraper.hover(function() {
+					clearInterval(ad);
+				}, function() {
+					ad = setInterval(function() {
+						flag == "left" ? next.click() : prev.click()
+					}, s * 1000);
+				});
+			}
+		}
+		DY_scroll('.hl_main5_content', '.hl_scrool_leftbtn',
+				'.hl_scrool_rightbtn', '.hl_main5_content1', 2, true);// true为自动播放，不加此参数或false就默认不自动 
+	}
 	function stopss() {
 		return false;
 	}
 	document.oncontextmenu = stopss;
 </script>
 
-<style>
-</style>
+<style type="text/css"> 
+.hl_main5_content{width:898px; height:155px; border-top:none; margin-left:1px; margin:0px auto;} 
+.hl_main5_content1{width:838px;margin-top:5px; overflow:hidden; float:left; margin-left:15px;} 
+.hl_main5_content1 ul{width:1600px; overflow:hidden;} 
+.hl_main5_content1 ul li{ float:left; width:200px; display:inline; border:1px #FF0000 solid; margin-right:10px;} 
+.hl_main5_content1 ul li img{ width:200px; } 
+.hl_scrool_leftbtn{width:14px; height:38px; background:#ccc url(/huaxin/img/index/icon.gif)  0px -113px no-repeat; float:left; margin-top:50px; cursor:pointer;} 
+.hl_scrool_rightbtn{width:14px; height:38px; background:#ccc url(/huaxin/img/index/icon.gif) -20px -113px no-repeat; float:right;margin-top:50px; cursor:pointer;} 
+</style> 
 </head>
 <body>
 	<div id="box_main">
 		<div id="wrapper">
 			<div class="slider-wrapper theme-theme1204">
 				<div id="slider" class="nivoSlider">
-					<img src="huaxin/img/1.jpg" alt="" style="height: 423px;" /> <img
-						src="huaxin/img/2.jpg" alt="" /> <img src="huaxin/img/3.jpg"
-						alt="" /> <img src="huaxin/img/4.jpg" alt="" />
+					<c:forEach items="${fnc:getMainPicList('HD',5)}" var="article">
+						<img src="${article.image}" alt="" style="height: 423px;" />
+					</c:forEach>
 				</div>
 			</div>
 		</div>
 	</div>
-	<div style="text-align: center; width: 77%; min-width: 1000px;">
+	<div style="text-align: center; width: 77%; min-width: 1000px;    margin-top: 20px;">
 		<table style="width: 100%; margin: 0 13%;" align="center"
 			cellpadding="0">
 			<tr>
@@ -123,25 +166,17 @@
 			</tr>
 		</table>
 	</div>
-	<div class="poster-main B_Demo">
-		<div class="poster-btn poster-prev-btn"></div>
-		<ul class="poster-list">
-			<li class="poster-item"><a href="#"><img
-					src="/huaxin/img/index/1.jpg" width="100%"></a></li>
-			<li class="poster-item"><a href="#"><img
-					src="/huaxin/img/index/2.jpg" width="100%"></a></li>
-			<li class="poster-item"><a href="#"><img
-					src="/huaxin/img/index/3.jpg" width="100%"></a></li>
-			<li class="poster-item"><a href="#"><img
-					src="/huaxin/img/index/4.jpg" width="100%"></a></li>
-			<li class="poster-item"><a href="#"><img
-					src="/huaxin/img/index/5.jpg" width="100%"></a></li>
-			<li class="poster-item"><a href="#"><img
-					src="/huaxin/img/index/6.jpg" width="100%"></a></li>
-			<li class="poster-item"><a href="#"><img
-					src="/huaxin/img/index/7.jpg" width="100%"></a></li>
-		</ul>
-		<div class="poster-btn poster-next-btn"></div>
+	<div class="hl_main5_content">
+		<div class="hl_scrool_leftbtn"></div>
+		<div class="hl_scrool_rightbtn"></div>
+		<div class="hl_main5_content1">
+			<ul>
+				<c:forEach items="${fnc:getMainPicList('CP',10)}" var="article">
+					<li><a href="" title=""><img src="${article.image}" /></a></li>
+				</c:forEach>
+			</ul>
+		</div>
+	</div>
 	</div>
 </body>
 </html>

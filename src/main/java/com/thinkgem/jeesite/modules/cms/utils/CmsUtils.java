@@ -29,6 +29,8 @@ import com.thinkgem.jeesite.modules.cms.service.ArticleService;
 import com.thinkgem.jeesite.modules.cms.service.CategoryService;
 import com.thinkgem.jeesite.modules.cms.service.LinkService;
 import com.thinkgem.jeesite.modules.cms.service.SiteService;
+import com.thinkgem.jeesite.modules.mainpic.entity.MainPic;
+import com.thinkgem.jeesite.modules.mainpic.service.MainPicService;
 
 /**
  * 内容管理工具类
@@ -41,6 +43,7 @@ public class CmsUtils {
 	private static CategoryService categoryService = SpringContextHolder.getBean(CategoryService.class);
 	private static ArticleService articleService = SpringContextHolder.getBean(ArticleService.class);
 	private static ArticleDataService articleDataService = SpringContextHolder.getBean(ArticleDataService.class);
+	private static MainPicService mainPicService = SpringContextHolder.getBean(MainPicService.class);
 	private static LinkService linkService = SpringContextHolder.getBean(LinkService.class);
     private static ServletContext context = SpringContextHolder.getBean(ServletContext.class);
     
@@ -189,6 +192,25 @@ public class CmsUtils {
 		article.setDelFlag(Article.DEL_FLAG_NORMAL);
 		page = articleService.findPage(page, article, false);
 		return page.getList();
+	}
+	/**
+	 * 获取文章列表
+	 * @param siteId 站点编号
+	 * @param categoryId 分类编号
+	 * @param number 获取数目
+	 * @param param  预留参数，例： key1:'value1', key2:'value2' ...
+	 * 			posid	推荐位（1：首页焦点图；2：栏目页文章推荐；）
+	 * 			image	文章图片（1：有图片的文章）
+	 *          orderBy 排序字符串
+	 * @return
+	 * ${fnc:getArticleList(category.site.id, category.id, not empty pageSize?pageSize:8, 'posid:2, orderBy: \"hits desc\"')}"
+	 */
+	public static List<MainPic> getMainPicList(String type, int number){
+		MainPic mainPic = new MainPic();
+		mainPic.setType(type);
+		mainPic.setNum(number);
+		List<MainPic> list = mainPicService.findList(mainPic);
+		return list;
 	}
 	
 	/**
